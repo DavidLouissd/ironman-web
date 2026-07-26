@@ -3,39 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Industries | Iron Man Protocol</title>
+    <title>Stark Industries | Armor Database</title>
     <style>
         body {
-            background-color: #0b0f19;
+            background-color: #05070b;
             color: #f0f6fc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding-top: 10vh;
             margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
         }
         h1 {
             color: #ff3333;
             text-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+        .reactor-container {
+            text-align: center;
+            margin: 20px 0 40px 0;
         }
         .reactor {
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             background: radial-gradient(circle, #00ffff 30%, #0066ff 70%);
             border-radius: 50%;
-            margin: 30px auto;
-            box-shadow: 0 0 30px #00ffff, inset 0 0 15px #ffffff;
+            margin: 0 auto;
+            box-shadow: 0 0 25px #00ffff, inset 0 0 10px #ffffff;
         }
-        p {
-            color: #8b949e;
-            font-size: 1.2rem;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(13, 17, 23, 0.8);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffff;
+        }
+        .card h2 {
+            color: #00ffff;
+            font-size: 1.4rem;
+            margin-top: 0;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 8px;
+        }
+        .specs {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+            font-size: 0.95rem;
+            color: #c9d1d9;
+        }
+        .specs li {
+            margin-bottom: 8px;
+        }
+        .specs strong {
+            color: #ff3333;
         }
     </style>
 </head>
 <body>
-    <h1>MARK PROTOCOL INITIALIZED</h1>
-    <div class="reactor"></div>
-    <p>Sistema de armadura en línea. Preparado para la siguiente fase de desarrollo.</p>
+
+    <header>
+        <h1>STARK INDUSTRIES DATABASE</h1>
+        <div class="subtitle">REGISTRO OFICIAL DE ARMADURAS - PROTOCOLO MARK</div>
+    </header>
+
+    <div class="reactor-container">
+        <div class="reactor"></div>
+    </div>
+
+    <div class="grid">
+        <!-- Mark I -->
+        <div class="card">
+            <h2>Mark I</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Chatarra de hierro táctica y acero balístico</li>
+                <li><strong>Propulsión:</strong> Cohetes primitivos de corto alcance</li>
+                <li><strong>Armamento:</strong> Lanzallamas y ametralladora integrada</li>
+                <li><strong>Función:</strong> Escape de emergencia de la cueva en Gulmira</li>
+            </ul>
+        </div>
+
+        <!-- Mark III -->
+        <div class="card">
+            <h2>Mark III</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Aleación de oro y titanio (Clasificación A, satelital)</li>
+                <li><strong>Propulsión:</strong> Botas y guanteletes repulsores avanzados</li>
+                <li><strong>Armamento:</strong> Misiles micromisiles y Unirayo en el pecho</li>
+                <li><strong>Función:</strong> Primera armadura táctica oficial de combate</li>
+            </ul>
+        </div>
+
+        <!-- Mark V -->
+        <div class="card">
+            <h2>Mark V (Maletín)</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Polímero metálico de alta compresión portátil</li>
+                <li><strong>Propulsión:</strong> Vuelo subsónico de despliegue rápido</li>
+                <li><strong>Armamento:</strong> Repulsores estándar de emergencia</li>
+                <li><strong>Función:</strong> Autodefensa móvil y portabilidad extrema</li>
+            </ul>
+        </div>
+
+        <!-- Mark VII -->
+        <div class="card">
+            <h2>Mark VII</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Aleación avanzada de titanio-oro autorreparable</li>
+                <li><strong>Propulsión:</strong> Módulo de despliegue aéreo autónomo con cápsula</li>
+                <li><strong>Armamento:</strong> Láseres de alta frecuencia y ojivas inteligentes</li>
+                <li><strong>Función:</strong> Intervención rápida para guerra abierta (Batalla de Nueva York)</li>
+            </ul>
+        </div>
+
+        <!-- Mark XLII (42) -->
+        <div class="card">
+            <h2>Mark XLII</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Componentes modulares independientes de ensamblaje neural</li>
+                <li><strong>Propulsión:</strong> Sistema de atracción cinemática por piezas</li>
+                <li><strong>Armamento:</strong> Repulsores mejorados y control remoto total</li>
+                <li><strong>Función:</strong> Prototipo de despliegue fragmentado autónomo</li>
+            </ul>
+        </div>
+
+        <!-- Mark LXXXV (85) -->
+        <div class="card">
+            <h2>Mark LXXXV</h2>
+            <ul class="specs">
+                <li><strong>Material:</strong> Nanotecnología pura moldeable de alta resistencia</li>
+                <li><strong>Propulsión:</strong> Vuelo interestelar y maniobrabilidad espacial</li>
+                <li><strong>Armamento:</strong> Nano-cañones, energía absorbida y Nano-Guantelete</li>
+                <li><strong>Función:</strong> Cumbre de la ingeniería humana (Guerra contra Thanos)</li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>
