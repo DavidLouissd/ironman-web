@@ -41,8 +41,8 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -50,7 +50,7 @@
             background: rgba(13, 17, 23, 0.8);
             border: 1px solid #30363d;
             border-radius: 8px;
-            padding: 20px;
+            overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
@@ -58,22 +58,30 @@
             transform: translateY(-5px);
             border-color: #00ffff;
         }
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #30363d;
+        }
+        .card-content {
+            padding: 20px;
+        }
         .card h2 {
             color: #00ffff;
             font-size: 1.4rem;
             margin-top: 0;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
         .specs {
             list-style: none;
             padding: 0;
-            margin: 15px 0 0 0;
+            margin: 0;
             font-size: 0.95rem;
             color: #c9d1d9;
         }
         .specs li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .specs strong {
             color: #ff3333;
@@ -94,68 +102,74 @@
     <div class="grid">
         <!-- Mark I -->
         <div class="card">
-            <h2>Mark I</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Chatarra de hierro táctica y acero balístico</li>
-                <li><strong>Propulsión:</strong> Cohetes primitivos de corto alcance</li>
-                <li><strong>Armamento:</strong> Lanzallamas y ametralladora integrada</li>
-                <li><strong>Función:</strong> Escape de emergencia de la cueva en Gulmira</li>
-            </ul>
+            <img src="mark1.jpg" alt="Armadura Mark I" class="card-image">
+            <div class="card-content">
+                <h2>Mark I</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Chatarra de hierro táctica y acero balístico</li>
+                    <li><strong>Armamento:</strong> Lanzallamas y ametralladora integrada</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Mark III -->
         <div class="card">
-            <h2>Mark III</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Aleación de oro y titanio (Clasificación A, satelital)</li>
-                <li><strong>Propulsión:</strong> Botas y guanteletes repulsores avanzados</li>
-                <li><strong>Armamento:</strong> Misiles micromisiles y Unirayo en el pecho</li>
-                <li><strong>Función:</strong> Primera armadura táctica oficial de combate</li>
-            </ul>
+            <img src="mark3.jpg" alt="Armadura Mark III" class="card-image">
+            <div class="card-content">
+                <h2>Mark III</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Aleación de oro y titanio (Clasificación A)</li>
+                    <li><strong>Armamento:</strong> Misiles micromisiles y Unirayo en el pecho</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Mark V -->
         <div class="card">
-            <h2>Mark V (Maletín)</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Polímero metálico de alta compresión portátil</li>
-                <li><strong>Propulsión:</strong> Vuelo subsónico de despliegue rápido</li>
-                <li><strong>Armamento:</strong> Repulsores estándar de emergencia</li>
-                <li><strong>Función:</strong> Autodefensa móvil y portabilidad extrema</li>
-            </ul>
+            <img src="mark5.jpg" alt="Armadura Mark V" class="card-image">
+            <div class="card-content">
+                <h2>Mark V (Maletín)</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Polímero metálico de alta compresión portátil</li>
+                    <li><strong>Armamento:</strong> Repulsores estándar de emergencia</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Mark VII -->
         <div class="card">
-            <h2>Mark VII</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Aleación avanzada de titanio-oro autorreparable</li>
-                <li><strong>Propulsión:</strong> Módulo de despliegue aéreo autónomo con cápsula</li>
-                <li><strong>Armamento:</strong> Láseres de alta frecuencia y ojivas inteligentes</li>
-                <li><strong>Función:</strong> Intervención rápida para guerra abierta (Batalla de Nueva York)</li>
-            </ul>
+            <img src="mark7.jpg" alt="Armadura Mark VII" class="card-image">
+            <div class="card-content">
+                <h2>Mark VII</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Aleación avanzada de titanio-oro autorreparable</li>
+                    <li><strong>Armamento:</strong> Láseres de alta frecuencia y ojivas inteligentes</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Mark XLII (42) -->
         <div class="card">
-            <h2>Mark XLII</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Componentes modulares independientes de ensamblaje neural</li>
-                <li><strong>Propulsión:</strong> Sistema de atracción cinemática por piezas</li>
-                <li><strong>Armamento:</strong> Repulsores mejorados y control remoto total</li>
-                <li><strong>Función:</strong> Prototipo de despliegue fragmentado autónomo</li>
-            </ul>
+            <img src="mark42.jpg" alt="Armadura Mark XLII" class="card-image">
+            <div class="card-content">
+                <h2>Mark XLII</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Componentes modulares independientes de ensamblaje neural</li>
+                    <li><strong>Armamento:</strong> Repulsores mejorados y control remoto total</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Mark LXXXV (85) -->
         <div class="card">
-            <h2>Mark LXXXV</h2>
-            <ul class="specs">
-                <li><strong>Material:</strong> Nanotecnología pura moldeable de alta resistencia</li>
-                <li><strong>Propulsión:</strong> Vuelo interestelar y maniobrabilidad espacial</li>
-                <li><strong>Armamento:</strong> Nano-cañones, energía absorbida y Nano-Guantelete</li>
-                <li><strong>Función:</strong> Cumbre de la ingeniería humana (Guerra contra Thanos)</li>
-            </ul>
+            <img src="mark85.jpg" alt="Armadura Mark LXXXV" class="card-image">
+            <div class="card-content">
+                <h2>Mark LXXXV</h2>
+                <ul class="specs">
+                    <li><strong>Material:</strong> Nanotecnología pura moldeable de alta resistencia</li>
+                    <li><strong>Armamento:</strong> Nano-cañones, energía absorbida y Nano-Guantelete</li>
+                </ul>
+            </div>
         </div>
     </div>
 
