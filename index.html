@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRON TECH</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#070707;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:
+radial-gradient(circle,#ffae00 0%,#500000 35%,#080808 75%);
+text-align:center;
+}
+
+h1{
+font-size:70px;
+letter-spacing:6px;
+color:#ffd54f;
+text-shadow:0 0 20px orange;
+}
+
+header p{
+font-size:22px;
+margin-top:20px;
+color:#ddd;
+width:70%;
+}
+
+button{
+margin-top:40px;
+padding:18px 45px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:gold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px gold;
+}
+
+section{
+padding:90px 10%;
+}
+
+h2{
+font-size:42px;
+margin-bottom:30px;
+color:#ffcf33;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#151515;
+padding:30px;
+border-radius:18px;
+transition:.4s;
+border:1px solid #444;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 25px rgba(255,170,0,.5);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#ffd54f;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#111;
+color:#888;
+}
+
+.arc{
+width:180px;
+height:180px;
+border-radius:50%;
+margin-bottom:40px;
+background:
+radial-gradient(circle,#9be7ff 0%,#1fd6ff 30%,#0099ff 55%,transparent 70%);
+box-shadow:
+0 0 20px #00c3ff,
+0 0 60px #00c3ff,
+0 0 120px #00c3ff;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="arc"></div>
+
+<h1>IRON TECH</h1>
+
+<p>
+Explora el universo de una de las armaduras tecnológicas más famosas del cine.
+Una demostración de diseño futurista creada únicamente con HTML y CSS.
+</p>
+
+<button onclick="document.getElementById('historia').scrollIntoView()">
+Explorar
+</button>
+
+</header>
+
+<section id="historia">
+
+<h2>Historia</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Origen</h3>
+<p>
+Una armadura creada para sobrevivir y convertirse en una obra maestra de la ingeniería.
+</p>
+</div>
+
+<div class="card">
+<h3>Tecnología</h3>
+<p>
+Motores, inteligencia artificial, materiales avanzados y energía de alta potencia.
+</p>
+</div>
+
+<div class="card">
+<h3>Evolución</h3>
+<p>
+Cada generación mejora velocidad, resistencia, autonomía y capacidad de combate.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Características</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⚡ Energía</h3>
+<p>
+Sistema de energía compacto inspirado en reactores futuristas.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 IA</h3>
+<p>
+Asistencia inteligente para navegación, defensa y análisis.
+</p>
+</div>
+
+<div class="card">
+<h3>🚀 Vuelo</h3>
+<p>
+Propulsores capaces de alcanzar grandes velocidades.
+</p>
+</div>
+
+<div class="card">
+<h3>🛡 Blindaje</h3>
+<p>
+Aleaciones resistentes con movilidad avanzada.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Página creada con HTML + CSS • GitHub Pages
+
+</footer>
+
+</body>
+</html>
