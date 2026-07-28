@@ -163,59 +163,53 @@
   .showcase{
     display:flex;
     justify-content:center;
-    align-items:flex-end;
-    gap:20px;
+    align-items:stretch;
+    gap:24px;
     margin-top:70px;
     padding-bottom:40px;
     flex-wrap:wrap;
   }
 
   .suit-card{
-    width:150px;
-    height:340px;
-    border-radius:20px 20px 12px 12px;
-    position:relative;
+    width:260px;
+    border-radius:20px;
     background:linear-gradient(160deg, var(--panel), #08080a);
-    border:1px solid rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
     display:flex;
     flex-direction:column;
-    align-items:center;
-    justify-content:flex-end;
-    padding-bottom:18px;
+    padding:24px;
     box-shadow:0 20px 40px rgba(0,0,0,0.5);
-    transition:transform .35s ease;
+    transition:transform .35s ease, border-color .35s ease;
     cursor: pointer;
+    text-align: left;
+    position: relative;
   }
-  .suit-card:hover{transform:translateY(-10px);}
-
-  .suit-card .plate{
-    position:absolute;
-    top:26px;
-    width:70%;
-    height:55%;
-    border-radius:14px;
-  }
-
-  .suit-mk1 .plate{background:linear-gradient(145deg, var(--hotrod), #6d0817);}
-  .suit-mk2 .plate{background:linear-gradient(145deg, var(--gold), #8a5c00);}
-  .suit-mk3 .plate{background:linear-gradient(145deg, #d9d9dc, #6d6d70);}
-  .suit-mk4 .plate{background:linear-gradient(145deg, #2c2c30, #060607);}
-
-  .suit-card .reactor{
-    position:absolute;
-    top:70px;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background:radial-gradient(circle, #eafcff, var(--arc) 55%, transparent 80%);
-    box-shadow:0 0 14px 4px var(--arc);
+  .suit-card:hover{
+    transform:translateY(-10px);
+    border-color: rgba(255,180,0,0.4);
   }
 
   .suit-card .label{
-    font-size:11px;
-    letter-spacing:2px;
-    color:#8a8a90;
-    font-weight:700;
+    font-size:18px;
+    letter-spacing:1px;
+    color:var(--arc);
+    font-weight:800;
+    margin-bottom:12px;
+  }
+
+  .suit-info {
+    font-size:13px;
+    color:#b9b9c0;
+    line-height:1.6;
+  }
+
+  .suit-info p {
+    margin-bottom:8px;
+  }
+
+  .suit-info span {
+    color: var(--gold);
+    font-weight: 600;
   }
 
   /* ---------- NEXT SECTION ---------- */
@@ -281,10 +275,37 @@
   </div>
 
   <div class="showcase">
-    <div class="suit-card suit-mk1"><div class="plate"></div><div class="reactor"></div><span class="label">MARK I</span></div>
-    <div class="suit-card suit-mk2"><div class="plate"></div><div class="reactor"></div><span class="label">MARK II</span></div>
-    <div class="suit-card suit-mk3"><div class="plate"></div><div class="reactor"></div><span class="label">MARK III</span></div>
-    <div class="suit-card suit-mk4"><div class="plate"></div><div class="reactor"></div><span class="label">MARK STEALTH</span></div>
+    <div class="suit-card">
+      <div class="label">Mark I</div>
+      <div class="suit-info">
+        <p><span>Material:</span> Chatarra de hierro táctico y acero balístico.</p>
+        <p><span>Armamento:</span> Lanzallamas y ametralladora integrada.</p>
+      </div>
+    </div>
+
+    <div class="suit-card">
+      <div class="label">Mark III</div>
+      <div class="suit-info">
+        <p><span>Material:</span> Aleación de oro y titanio (Clasificación A).</p>
+        <p><span>Armamento:</span> Misiles micromisiles y Unirayo en el pecho.</p>
+      </div>
+    </div>
+
+    <div class="suit-card">
+      <div class="label">Mark V (Maletín)</div>
+      <div class="suit-info">
+        <p><span>Material:</span> Polímero metálico de alta compresión portátil.</p>
+        <p><span>Armamento:</span> Repulsores estándar de emergencia.</p>
+      </div>
+    </div>
+
+    <div class="suit-card">
+      <div class="label">Mark VII</div>
+      <div class="suit-info">
+        <p><span>Material:</span> Aleación avanzada de titanio-oro autorreparable.</p>
+        <p><span>Armamento:</span> Láseres de alta frecuencia y ojivas inteligentes.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -296,7 +317,6 @@
 <footer>© STARK LABS · Diseño de práctica, sin afiliación oficial con Marvel.</footer>
 
 <script>
-  // Alerta interactiva para los botones principales
   document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -304,11 +324,10 @@
     });
   });
 
-  // Interactividad al hacer clic en las tarjetas de armadura
   document.querySelectorAll('.suit-card').forEach(card => {
     card.addEventListener('click', () => {
       const suitName = card.querySelector('.label').textContent;
-      alert("Armadura seleccionada: " + suitName + ". Sincronizando con la interfaz de JARVIS.");
+      alert("Armadura seleccionada: " + suitName + ". Sincronizando especificaciones con JARVIS.");
     });
   });
 </script>
