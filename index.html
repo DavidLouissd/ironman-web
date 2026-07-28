@@ -1,177 +1,295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Industries | Armor Database</title>
-    <style>
-        body {
-            background-color: #05070b;
-            color: #f0f6fc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-        }
-        h1 {
-            color: #ff3333;
-            text-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            color: #8b949e;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
-        .reactor-container {
-            text-align: center;
-            margin: 20px 0 40px 0;
-        }
-        .reactor {
-            width: 90px;
-            height: 90px;
-            background: radial-gradient(circle, #00ffff 30%, #0066ff 70%);
-            border-radius: 50%;
-            margin: 0 auto;
-            box-shadow: 0 0 25px #00ffff, inset 0 0 10px #ffffff;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .card {
-            background: rgba(13, 17, 23, 0.8);
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #00ffff;
-        }
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid #30363d;
-        }
-        .card-content {
-            padding: 20px;
-        }
-        .card h2 {
-            color: #00ffff;
-            font-size: 1.4rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .specs {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.95rem;
-            color: #c9d1d9;
-        }
-        .specs li {
-            margin-bottom: 6px;
-        }
-        .specs strong {
-            color: #ff3333;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARK | La nueva generación de armadura</title>
+<style>
+  :root{
+    --void: #0a0a0d;
+    --panel: #131316;
+    --steel: #3a3d42;
+    --hotrod: #c8102e;
+    --gold: #ffb400;
+    --arc: #4fd8ff;
+    --paper: #f2f0ec;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--void);
+    color:var(--paper);
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x:hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 40px;
+    background:rgba(10,10,13,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,180,0,0.15);
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    letter-spacing:3px;
+    font-size:15px;
+  }
+
+  .brand .core{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:radial-gradient(circle at 40% 40%, #eafcff, var(--arc) 40%, #0a5f78 100%);
+    box-shadow:0 0 12px 2px var(--arc);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 8px 1px var(--arc);}
+    50%{box-shadow:0 0 20px 5px var(--arc);}
+  }
+
+  nav ul{
+    display:flex;
+    gap:32px;
+    list-style:none;
+  }
+
+  nav a{
+    color:#c9c9ce;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:0.5px;
+    transition:color .25s;
+  }
+  nav a:hover{color:var(--gold);}
+
+  .search-icon{
+    width:16px;height:16px;
+    border:1.5px solid #c9c9ce;
+    border-radius:50%;
+    position:relative;
+  }
+  .search-icon::after{
+    content:'';
+    position:absolute;
+    width:6px;height:1.5px;
+    background:#c9c9ce;
+    transform:rotate(45deg);
+    bottom:-3px;right:-4px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;
+    padding:100px 24px 60px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.18), transparent 60%),
+      var(--void);
+  }
+
+  .eyebrow{
+    color:var(--gold);
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-size:clamp(48px, 8vw, 96px);
+    font-weight:800;
+    letter-spacing:-1px;
+    background:linear-gradient(180deg, #fff, #d8d8dc);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    line-height:0.95;
+  }
+
+  .tagline{
+    margin-top:20px;
+    font-size:22px;
+    color:#b9b9c0;
+    font-weight:300;
+  }
+
+  .cta-row{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-top:36px;
+  }
+
+  .btn{
+    padding:12px 28px;
+    border-radius:24px;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+
+  .btn-primary{
+    background:linear-gradient(90deg, var(--hotrod), #a10d24);
+    color:#fff;
+    box-shadow:0 4px 20px rgba(200,16,46,0.4);
+  }
+  .btn-primary:hover{box-shadow:0 6px 26px rgba(200,16,46,0.6);}
+
+  .btn-ghost{
+    border:1.5px solid var(--gold);
+    color:var(--gold);
+  }
+  .btn-ghost:hover{background:rgba(255,180,0,0.08);}
+
+  /* ---------- SUIT SHOWCASE ---------- */
+  .showcase{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:20px;
+    margin-top:70px;
+    padding-bottom:40px;
+    flex-wrap:wrap;
+  }
+
+  .suit-card{
+    width:150px;
+    height:340px;
+    border-radius:20px 20px 12px 12px;
+    position:relative;
+    background:linear-gradient(160deg, var(--panel), #08080a);
+    border:1px solid rgba(255,255,255,0.06);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    padding-bottom:18px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    transition:transform .35s ease;
+  }
+  .suit-card:hover{transform:translateY(-10px);}
+
+  .suit-card .plate{
+    position:absolute;
+    top:26px;
+    width:70%;
+    height:55%;
+    border-radius:14px;
+  }
+
+  .suit-mk1 .plate{background:linear-gradient(145deg, var(--hotrod), #6d0817);}
+  .suit-mk2 .plate{background:linear-gradient(145deg, var(--gold), #8a5c00);}
+  .suit-mk3 .plate{background:linear-gradient(145deg, #d9d9dc, #6d6d70);}
+  .suit-mk4 .plate{background:linear-gradient(145deg, #2c2c30, #060607);}
+
+  .suit-card .reactor{
+    position:absolute;
+    top:70px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:radial-gradient(circle, #eafcff, var(--arc) 55%, transparent 80%);
+    box-shadow:0 0 14px 4px var(--arc);
+  }
+
+  .suit-card .label{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#8a8a90;
+    font-weight:700;
+  }
+
+  /* ---------- NEXT SECTION ---------- */
+  .section-two{
+    background:var(--paper);
+    color:#111;
+    padding:100px 24px;
+    text-align:center;
+  }
+
+  .section-two h2{
+    font-size:clamp(40px,6vw,72px);
+    font-weight:800;
+    letter-spacing:-1px;
+  }
+
+  .section-two p{
+    margin-top:16px;
+    font-size:20px;
+    color:#4a4a4a;
+    font-weight:300;
+  }
+
+  footer{
+    background:var(--void);
+    color:#6a6a70;
+    text-align:center;
+    padding:30px;
+    font-size:12px;
+    letter-spacing:1px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+
+  @media (max-width:700px){
+    nav ul{display:none;}
+    header{padding:14px 20px;}
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>STARK INDUSTRIES DATABASE</h1>
-        <div class="subtitle">REGISTRO OFICIAL DE ARMADURAS - PROTOCOLO MARK</div>
-    </header>
+<header>
+  <div class="brand"><span class="core"></span>MARK</div>
+  <nav>
+    <ul>
+      <li><a href="#">Armadura</a></li>
+      <li><a href="#">Reactor</a></li>
+      <li><a href="#">JARVIS</a></li>
+      <li><a href="#">Taller</a></li>
+      <li><a href="#">Soporte</a></li>
+    </ul>
+  </nav>
+  <div class="search-icon"></div>
+</header>
 
-    <div class="reactor-container">
-        <div class="reactor"></div>
-    </div>
+<section class="hero">
+  <div class="eyebrow">STARK INDUSTRIES · NUEVA GENERACIÓN</div>
+  <h1>MARK</h1>
+  <p class="tagline">Dile hola a la nueva generación de armadura.</p>
+  <div class="cta-row">
+    <a href="#" class="btn btn-primary">Más información</a>
+    <a href="#" class="btn btn-ghost">Ver especificaciones</a>
+  </div>
 
-    <div class="grid">
-        <!-- Mark I -->
-        <div class="card">
-            <img src="mark1.jpg" alt="Armadura Mark I" class="card-image">
-            <div class="card-content">
-                <h2>Mark I</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Chatarra de hierro táctica y acero balístico</li>
-                    <li><strong>Armamento:</strong> Lanzallamas y ametralladora integrada</li>
-                </ul>
-            </div>
-        </div>
+  <div class="showcase">
+    <div class="suit-card suit-mk1"><div class="plate"></div><div class="reactor"></div><span class="label">MARK I</span></div>
+    <div class="suit-card suit-mk2"><div class="plate"></div><div class="reactor"></div><span class="label">MARK II</span></div>
+    <div class="suit-card suit-mk3"><div class="plate"></div><div class="reactor"></div><span class="label">MARK III</span></div>
+    <div class="suit-card suit-mk4"><div class="plate"></div><div class="reactor"></div><span class="label">MARK STEALTH</span></div>
+  </div>
+</section>
 
-        <!-- Mark III -->
-        <div class="card">
-            <img src="mark3.jpg" alt="Armadura Mark III" class="card-image">
-            <div class="card-content">
-                <h2>Mark III</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Aleación de oro y titanio (Clasificación A)</li>
-                    <li><strong>Armamento:</strong> Misiles micromisiles y Unirayo en el pecho</li>
-                </ul>
-            </div>
-        </div>
+<section class="section-two">
+  <h2>Reactor Arc Pro</h2>
+  <p>Energía limpia. Potencia infinita. Precio sorprendente.</p>
+</section>
 
-        <!-- Mark V -->
-        <div class="card">
-            <img src="mark5.jpg" alt="Armadura Mark V" class="card-image">
-            <div class="card-content">
-                <h2>Mark V (Maletín)</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Polímero metálico de alta compresión portátil</li>
-                    <li><strong>Armamento:</strong> Repulsores estándar de emergencia</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Mark VII -->
-        <div class="card">
-            <img src="mark7.jpg" alt="Armadura Mark VII" class="card-image">
-            <div class="card-content">
-                <h2>Mark VII</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Aleación avanzada de titanio-oro autorreparable</li>
-                    <li><strong>Armamento:</strong> Láseres de alta frecuencia y ojivas inteligentes</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Mark XLII (42) -->
-        <div class="card">
-            <img src="mark42.jpg" alt="Armadura Mark XLII" class="card-image">
-            <div class="card-content">
-                <h2>Mark XLII</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Componentes modulares independientes de ensamblaje neural</li>
-                    <li><strong>Armamento:</strong> Repulsores mejorados y control remoto total</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Mark LXXXV (85) -->
-        <div class="card">
-            <img src="mark85.jpg" alt="Armadura Mark LXXXV" class="card-image">
-            <div class="card-content">
-                <h2>Mark LXXXV</h2>
-                <ul class="specs">
-                    <li><strong>Material:</strong> Nanotecnología pura moldeable de alta resistencia</li>
-                    <li><strong>Armamento:</strong> Nano-cañones, energía absorbida y Nano-Guantelete</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<footer>© STARK LABS · Diseño de práctica, sin afiliación oficial con Marvel.</footer>
 
 </body>
 </html>
