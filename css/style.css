@@ -1,10 +1,9 @@
 /* =================================================================     
-   APPLE-GRADE DESIGN SYSTEM — LUIS FLORES
+   APPLE-GRADE DESIGN SYSTEM — LUIS FLORES (FULL VERSION)
    ================================================================ */
 
 :root {
     --bg-color: #000000;
-    --card-bg: #111113;
     --text-primary: #f5f5f7;
     --text-secondary: #86868b;
     --accent-blue: #2997ff;
@@ -12,11 +11,7 @@
     --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
     scroll-behavior: smooth;
@@ -24,347 +19,62 @@ html {
     color: var(--text-primary);
     font-family: var(--font-stack);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    line-height: 1.47059;
-    font-weight: 400;
-    letter-spacing: -0.022em;
-    overflow-x: hidden;
-}
+body { line-height: 1.47; font-weight: 400; overflow-x: hidden; }
 
-/* =================================================================     
-   NAVBAR (Frosted Glass Apple Style)
-   ================================================================ */
-
+/* Navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 48px;
+    position: fixed; top: 0; width: 100%; height: 48px;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5%; z-index: 1000; border-bottom: 1px solid var(--border-color);
 }
 
-.logo {
-    color: var(--text-primary);
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-}
+.logo { color: var(--text-primary); font-weight: 600; text-decoration: none; }
+.navbar nav { display: flex; gap: 2rem; }
+.navbar nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+.navbar nav a:hover { color: var(--text-primary); }
 
-.navbar nav {
-    display: flex;
-    gap: 2rem;
-}
+/* Main Layout */
+main { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+section { padding: 120px 0; border-bottom: 1px solid var(--border-color); }
 
-.navbar nav a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.3s ease;
-}
+/* Animaciones para el JS */
+.reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.is-visible { opacity: 1; transform: translateY(0); }
 
-.navbar nav a:hover {
-    color: var(--text-primary);
-}
+/* Hero */
+.hero { min-height: 90vh; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 4rem; padding-top: 140px; }
+.eyebrow { font-size: 0.8rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 1rem; text-transform: uppercase; }
+.hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.05; margin-bottom: 1.5rem; }
+.hero h1 span { color: var(--text-secondary); }
+.hero-description { font-size: 1.25rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 2.5rem; }
+.hero-buttons { display: flex; gap: 1rem; }
+.button, .linkedin { padding: 10px 22px; border-radius: 980px; font-size: 0.9rem; text-decoration: none; transition: 0.3s; }
+.button { background: var(--text-primary); color: var(--bg-color); }
+.linkedin { background: rgba(255, 255, 255, 0.08); color: var(--text-primary); border: 1px solid var(--border-color); }
+.hero-image img { width: 100%; max-width: 360px; aspect-ratio: 4/5; object-fit: cover; border-radius: 24px; border: 1px solid var(--border-color); }
 
-/* =================================================================     
-   MAIN LAYOUT & SECTIONS
-   ================================================================ */
+/* About & Experience */
+.section-number { font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 2rem; }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.about-content h2 { font-size: 2.8rem; font-weight: 600; }
+.about-content h2 span { color: var(--accent-blue); }
+.experience-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 3rem 0; border-bottom: 1px solid var(--border-color); }
+.company { color: var(--accent-blue); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 
-main {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
+/* Contact */
+.contact h2 { font-size: 3.5rem; margin-bottom: 2rem; }
+.email { font-size: 2.2rem; color: var(--accent-blue); text-decoration: none; display: block; }
 
-section {
-    padding: 120px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-section:last-of-type {
-    border-bottom: none;
-}
-
-.section-number {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-}
-
-/* =================================================================     
-   HERO SECTION
-   ================================================================ */
-
-.hero {
-    min-height: 90vh;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-    gap: 4rem;
-    padding-top: 140px;
-}
-
-.eyebrow {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent-blue);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-}
-
-.hero h1 {
-    font-size.size: 4rem;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    margin-bottom: 1.5rem;
-}
-
-.hero h1 span {
-    color: var(--text-secondary);
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.button, .linkedin {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 22px;
-    border-radius: 980px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.button {
-    background-color: var(--text-primary);
-    color: var(--bg-color);
-}
-
-.button:hover {
-    background-color: #ffffff;
-    transform: scale(1.02);
-}
-
-.linkedin {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.linkedin:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 360px;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 24px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--border-color);
-    margin: 0 auto;
-    display: block;
-}
-
-/* =================================================================     
-   ABOUT SECTION
-   ================================================================ */
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.about-content h2 {
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-}
-
-.about-content h2 span {
-    color: var(--accent-blue);
-}
-
-.about-text .large {
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.about-text p:not(.large) {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* =================================================================     
-   EXPERIENCE SECTION
-   ================================================================ */
-
-.experience-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.experience-item:first-of-type {
-    padding-top: 0;
-}
-
-.experience-item span {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.company {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-}
-
-.experience-item h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-}
-
-.experience-item p:not(.company) {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-}
-
-/* =================================================================     
-   CONTACT SECTION
-   ================================================================ */
-
-.contact {
-    text-align: left;
-}
-
-.contact h2 {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    letter-spacing: -0.015em;
-}
-
-.contact h2 span {
-    color: var(--text-secondary);
-}
-
-.email {
-    display: block;
-    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    font-weight: 500;
-    color: var(--accent-blue);
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-    transition: opacity 0.2s ease;
-}
-
-.email:hover {
-    opacity: 0.8;
-}
-
-.contact-link {
-    display: inline-block;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    border-bottom: 1px solid var(--text-primary);
-    padding-bottom: 2px;
-}
-
-/* =================================================================     
-   FOOTER
-   ================================================================ */
-
-footer {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-/* =================================================================     
-   RESPONSIVE DESIGN
-   ================================================================ */
+/* Footer */
+footer { max-width: 1060px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
 
 @media (max-width: 768px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 3rem;
-        padding-top: 100px;
-    }
-
-    .hero-description {
-        margin: 0 auto 2.5rem auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .experience-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-
-    .navbar nav {
-        display: none; /* Simplificado para móvil limpio */
-    }
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .about-content { grid-template-columns: 1fr; }
+    .experience-item { grid-template-columns: 1fr; }
+    .navbar nav { display: none; }
 }
