@@ -1,336 +1,411 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MARK | La nueva generación de armadura</title>
-<style>
-  :root{
-    --void: #0a0a0d;
-    --panel: #131316;
-    --steel: #3a3d42;
-    --hotrod: #c8102e;
-    --gold: #ffb400;
-    --arc: #4fd8ff;
-    --paper: #f2f0ec;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  *{margin:0;padding:0;box-sizing:border-box;}
+    <title>Luis Flores — PR Specialist & Digital Technologist</title>
 
-  body{
-    background:var(--void);
-    color:var(--paper);
-    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
-    overflow-x:hidden;
-  }
+    <meta
+        name="description"
+        content="Luis Flores — Public Relations Specialist & Digital Technologist."
+    >
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:16px 40px;
-    background:rgba(10,10,13,0.85);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,180,0,0.15);
-  }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-weight:800;
-    letter-spacing:3px;
-    font-size:15px;
-  }
-
-  .brand .core{
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    background:radial-gradient(circle at 40% 40%, #eafcff, var(--arc) 40%, #0a5f78 100%);
-    box-shadow:0 0 12px 2px var(--arc);
-    animation:pulse 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulse{
-    0%,100%{box-shadow:0 0 8px 1px var(--arc);}
-    50%{box-shadow:0 0 20px 5px var(--arc);}
-  }
-
-  nav ul{
-    display:flex;
-    gap:32px;
-    list-style:none;
-  }
-
-  nav a{
-    color:#c9c9ce;
-    text-decoration:none;
-    font-size:13px;
-    letter-spacing:0.5px;
-    transition:color .25s;
-  }
-  nav a:hover{color:var(--gold);}
-
-  .search-icon{
-    width:16px;height:16px;
-    border:1.5px solid #c9c9ce;
-    border-radius:50%;
-    position:relative;
-  }
-  .search-icon::after{
-    content:'';
-    position:absolute;
-    width:6px;height:1.5px;
-    background:#c9c9ce;
-    transform:rotate(45deg);
-    bottom:-3px;right:-4px;
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    text-align:center;
-    padding:100px 24px 60px;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.18), transparent 60%),
-      var(--void);
-  }
-
-  .eyebrow{
-    color:var(--gold);
-    letter-spacing:4px;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:18px;
-  }
-
-  h1{
-    font-size:clamp(48px, 8vw, 96px);
-    font-weight:800;
-    letter-spacing:-1px;
-    background:linear-gradient(180deg, #fff, #d8d8dc);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    line-height:0.95;
-  }
-
-  .tagline{
-    margin-top:20px;
-    font-size:22px;
-    color:#b9b9c0;
-    font-weight:300;
-  }
-
-  .cta-row{
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    margin-top:36px;
-  }
-
-  .btn{
-    padding:12px 28px;
-    border-radius:24px;
-    font-size:14px;
-    font-weight:600;
-    text-decoration:none;
-    transition:transform .2s, box-shadow .2s;
-    cursor: pointer;
-  }
-  .btn:hover{transform:translateY(-2px);}
-
-  .btn-primary{
-    background:linear-gradient(90deg, var(--hotrod), #a10d24);
-    color:#fff;
-    box-shadow:0 4px 20px rgba(200,16,46,0.4);
-    border: none;
-  }
-  .btn-primary:hover{box-shadow:0 6px 26px rgba(200,16,46,0.6);}
-
-  .btn-ghost{
-    border:1.5px solid var(--gold);
-    color:var(--gold);
-    background: transparent;
-  }
-  .btn-ghost:hover{background:rgba(255,180,0,0.08);}
-
-  /* ---------- SUIT SHOWCASE ---------- */
-  .showcase{
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:24px;
-    margin-top:70px;
-    padding-bottom:40px;
-    flex-wrap:wrap;
-  }
-
-  .suit-card{
-    width:260px;
-    border-radius:20px;
-    background:linear-gradient(160deg, var(--panel), #08080a);
-    border:1px solid rgba(255,255,255,0.08);
-    display:flex;
-    flex-direction:column;
-    padding:24px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.5);
-    transition:transform .35s ease, border-color .35s ease;
-    cursor: pointer;
-    text-align: left;
-    position: relative;
-  }
-  .suit-card:hover{
-    transform:translateY(-10px);
-    border-color: rgba(255,180,0,0.4);
-  }
-
-  .suit-card .label{
-    font-size:18px;
-    letter-spacing:1px;
-    color:var(--arc);
-    font-weight:800;
-    margin-bottom:12px;
-  }
-
-  .suit-info {
-    font-size:13px;
-    color:#b9b9c0;
-    line-height:1.6;
-  }
-
-  .suit-info p {
-    margin-bottom:8px;
-  }
-
-  .suit-info span {
-    color: var(--gold);
-    font-weight: 600;
-  }
-
-  /* ---------- NEXT SECTION ---------- */
-  .section-two{
-    background:var(--paper);
-    color:#111;
-    padding:100px 24px;
-    text-align:center;
-  }
-
-  .section-two h2{
-    font-size:clamp(40px,6vw,72px);
-    font-weight:800;
-    letter-spacing:-1px;
-  }
-
-  .section-two p{
-    margin-top:16px;
-    font-size:20px;
-    color:#4a4a4a;
-    font-weight:300;
-  }
-
-  footer{
-    background:var(--void);
-    color:#6a6a70;
-    text-align:center;
-    padding:30px;
-    font-size:12px;
-    letter-spacing:1px;
-    border-top:1px solid rgba(255,255,255,0.06);
-  }
-
-  @media (max-width:700px){
-    nav ul{display:none;}
-    header{padding:14px 20px;}
-  }
-</style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-  <div class="brand"><span class="core"></span>MARK</div>
-  <nav>
-    <ul>
-      <li><a href="#">Armadura</a></li>
-      <li><a href="#">Reactor</a></li>
-      <li><a href="#">JARVIS</a></li>
-      <li><a href="#">Taller</a></li>
-      <li><a href="#">Soporte</a></li>
-    </ul>
-  </nav>
-  <div class="search-icon"></div>
-</header>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <a href="#top" class="logo">LF.</a>
 
-<section class="hero">
-  <div class="eyebrow">STARK INDUSTRIES · NUEVA GENERACIÓN</div>
-  <h1>MARK</h1>
-  <p class="tagline">Dile hola a la nueva generación de armadura.</p>
-  <div class="cta-row">
-    <button class="btn btn-primary">Más información</button>
-    <button class="btn btn-ghost">Ver especificaciones</button>
-  </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <div class="showcase">
-    <div class="suit-card">
-      <div class="label">Mark I</div>
-      <div class="suit-info">
-        <p><span>Material:</span> Chatarra de hierro táctico y acero balístico.</p>
-        <p><span>Armamento:</span> Lanzallamas y ametralladora integrada.</p>
-      </div>
-    </div>
 
-    <div class="suit-card">
-      <div class="label">Mark III</div>
-      <div class="suit-info">
-        <p><span>Material:</span> Aleación de oro y titanio (Clasificación A).</p>
-        <p><span>Armamento:</span> Misiles micromisiles y Unirayo en el pecho.</p>
-      </div>
-    </div>
+    <main id="top">
 
-    <div class="suit-card">
-      <div class="label">Mark V (Maletín)</div>
-      <div class="suit-info">
-        <p><span>Material:</span> Polímero metálico de alta compresión portátil.</p>
-        <p><span>Armamento:</span> Repulsores estándar de emergencia.</p>
-      </div>
-    </div>
+        <!-- HERO -->
+        <section class="hero">
 
-    <div class="suit-card">
-      <div class="label">Mark VII</div>
-      <div class="suit-info">
-        <p><span>Material:</span> Aleación avanzada de titanio-oro autorreparable.</p>
-        <p><span>Armamento:</span> Láseres de alta frecuencia y ojivas inteligentes.</p>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="hero-content">
 
-<section class="section-two">
-  <h2>Reactor Arc Pro</h2>
-  <p>Energía limpia. Potencia infinita. Precio sorprendente.</p>
-</section>
+                <p class="eyebrow reveal">
+                    PR SPECIALIST · DIGITAL TECHNOLOGIST
+                </p>
 
-<footer>© STARK LABS · Diseño de práctica, sin afiliación oficial con Marvel.</footer>
+                <h1 class="hero-title reveal">
+                    Communication.<br>
+                    Technology.<br>
+                    <span>Precision.</span>
+                </h1>
 
-<script>
-  document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert("Iniciando protocolo Stark: Accediendo a los planos de alta seguridad...");
-    });
-  });
+                <p class="hero-description reveal">
+                    I combine strategic communication with digital execution,
+                    technical precision and modern operational workflows.
+                </p>
 
-  document.querySelectorAll('.suit-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const suitName = card.querySelector('.label').textContent;
-      alert("Armadura seleccionada: " + suitName + ". Sincronizando especificaciones con JARVIS.");
-    });
-  });
-</script>
+                <div class="hero-actions reveal">
+                    <a href="#about" class="button primary">
+                        Explore
+                    </a>
+
+                    <a href="#contact" class="button secondary">
+                        Get in touch →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+
+            <div class="section-label">
+                <span>01</span>
+                <span>ABOUT</span>
+            </div>
+
+            <div class="about-grid">
+
+                <h2>
+                    Bridging ideas<br>
+                    with execution.
+                </h2>
+
+                <div class="about-text">
+
+                    <p class="large-text">
+                        I am an emerging Public Relations practitioner
+                        with a technical mindset.
+                    </p>
+
+                    <p>
+                        My work combines high-impact communication,
+                        digital technology, spatial design and data analysis.
+                        I am particularly interested in the intersection
+                        between corporate strategy and modern digital workflows.
+                    </p>
+
+                    <p>
+                        From communication and public speaking to HTML/CSS,
+                        GitHub, AutoCAD, SketchUp and data analysis,
+                        I approach problems from both creative and analytical
+                        perspectives.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAPABILITIES -->
+        <section id="capabilities" class="section dark-section">
+
+            <div class="section-label">
+                <span>02</span>
+                <span>CAPABILITIES</span>
+            </div>
+
+            <div class="capabilities-header">
+
+                <h2>
+                    Different disciplines.<br>
+                    <span>One approach.</span>
+                </h2>
+
+                <p>
+                    A multidisciplinary toolkit designed to connect
+                    communication, technology and operational thinking.
+                </p>
+
+            </div>
+
+
+            <div class="capabilities-grid">
+
+                <article class="capability">
+                    <span class="number">01</span>
+                    <h3>Strategic Communication</h3>
+                    <p>
+                        Public speaking, media relations, crisis management
+                        and professional communication.
+                    </p>
+                </article>
+
+                <article class="capability">
+                    <span class="number">02</span>
+                    <h3>Digital Technology</h3>
+                    <p>
+                        HTML, CSS, GitHub version control and
+                        digital asset management.
+                    </p>
+                </article>
+
+                <article class="capability">
+                    <span class="number">03</span>
+                    <h3>Data & Analytics</h3>
+                    <p>
+                        Advanced Excel, data analysis,
+                        process optimization and productivity systems.
+                    </p>
+                </article>
+
+                <article class="capability">
+                    <span class="number">04</span>
+                    <h3>Spatial Design</h3>
+                    <p>
+                        AutoCAD structural drafting, SketchUp 3D modeling
+                        and architectural remodeling.
+                    </p>
+                </article>
+
+            </div>
+
+
+            <div class="tools">
+
+                <span>HTML / CSS</span>
+                <span>GITHUB</span>
+                <span>AUTOCAD</span>
+                <span>SKETCHUP</span>
+                <span>EXCEL</span>
+                <span>MICROSOFT OFFICE</span>
+                <span>CRM</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section">
+
+            <div class="section-label">
+                <span>03</span>
+                <span>EXPERIENCE</span>
+            </div>
+
+            <div class="experience-header">
+
+                <h2>
+                    Experience that<br>
+                    <span>builds perspective.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <article class="timeline-item">
+
+                    <div class="timeline-date">
+                        2022 — 2025
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <span class="company">
+                            KADMiel INNOVATIONS
+                        </span>
+
+                        <h3>
+                            Customer Support Assistant
+                        </h3>
+
+                        <p>
+                            Managed a high-volume flow of client interactions
+                            across calls and messaging while maintaining
+                            service quality and operational efficiency.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-date">
+                        2023
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <span class="company">
+                            INTERNATIONAL ORGANIZATION FOR MIGRATION
+                        </span>
+
+                        <h3>
+                            Volunteer
+                        </h3>
+
+                        <p>
+                            Participated in awareness-raising sessions,
+                            facilitating information dissemination through
+                            professional communication and public speaking.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+        <section id="education" class="section education-section">
+
+            <div class="section-label">
+                <span>04</span>
+                <span>EDUCATION</span>
+            </div>
+
+            <div class="education-main">
+
+                <span class="education-year">
+                    2025 — 2028
+                </span>
+
+                <h2>
+                    University of<br>
+                    <span>Panama.</span>
+                </h2>
+
+                <p>
+                    Bachelor's Degree in Public Relations
+                </p>
+
+            </div>
+
+
+            <div class="education-secondary">
+
+                <div>
+                    <span>2024</span>
+                    <h3>Alfredo Cantón High School</h3>
+                </div>
+
+                <p>
+                    High School Diploma in Sciences
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- LANGUAGES -->
+        <section class="languages">
+
+            <div class="language">
+
+                <span class="language-number">01</span>
+
+                <div>
+                    <h3>Spanish</h3>
+                    <p>Native</p>
+                </div>
+
+            </div>
+
+
+            <div class="language">
+
+                <span class="language-number">02</span>
+
+                <div>
+                    <h3>English</h3>
+                    <p>B2 / C1</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+
+            <p class="eyebrow">
+                05 · CONTACT
+            </p>
+
+            <h2>
+                Let's build<br>
+                <span>something meaningful.</span>
+            </h2>
+
+            <p class="contact-description">
+                Open to professional opportunities, collaborations
+                and projects involving communication and technology.
+            </p>
+
+            <a
+                href="mailto:luisx23507@gmail.com"
+                class="email-link"
+            >
+                luisx23507@gmail.com
+            </a>
+
+            <div class="social-links">
+
+                <!-- Replace # with your GitHub URL -->
+                <a href="#" target="_blank">
+                    GitHub ↗
+                </a>
+
+                <!-- Replace # with your LinkedIn URL -->
+                <a href="#" target="_blank">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>© 2026 Luis Flores</span>
+
+        <span>
+            Designed & built with HTML / CSS / JS
+        </span>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
 
 </body>
 </html>
