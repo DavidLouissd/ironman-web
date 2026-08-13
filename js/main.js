@@ -1,94 +1,52 @@
-/* =========================
-   SMOOTH SCROLL
-========================= */
+/* =================================================================     
+   APPLE-GRADE INTERACTION ENGINE — LUIS FLORES
+   ================================================================ */
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+document.addEventListener('DOMContentLoaded', () => {
 
-    link.addEventListener("click", function (event) {
+    // 1. Smooth Scrolling para los enlaces de navegación interna
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
 
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    });
-
-});
-
-
-/* =========================
-   NAVBAR BLUR
-========================= */
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-
-        navbar.style.background =
-            "rgba(255,255,255,0.72)";
-
-    } else {
-
-        navbar.style.background =
-            "rgba(255,255,255,0.82)";
-
-    }
-
-});
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-const observer = new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-                observer.unobserve(entry.target);
-
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
-
         });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
-
-
-document
-    .querySelectorAll(
-        ".about-text, .capability, .timeline-item, .education-main, .language"
-    )
-    .forEach(element => {
-
-        element.style.opacity = "0";
-
-        element.style.transform = "translateY(30px)";
-
-        element.style.transition =
-            "opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)";
-
-        observer.observe(element);
-
     });
+
+    // 2. Efecto de aparición progresiva (Scroll Reveal) al estilo Apple
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Seleccionamos las secciones que queremos animar al hacer scroll
+    const sectionsToAnimate = document.querySelectorAll('section, .experience-item');
+    
+    sectionsToAnimate.forEach(section => {
+        section.classList.add('reveal-on-scroll');
+        observer.observe(section);
+    });
+
+});
